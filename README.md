@@ -4,14 +4,18 @@
 ![GitHub stars](https://img.shields.io/github/stars/codewithsadee/vcard-personal-portfolio?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/codewithsadee/vcard-personal-portfolio?style=social)
 [![Twitter Follow](https://img.shields.io/twitter/follow/brianmurutu?style=social)](https://twitter.com/intent/follow?screen_name=brianmurutu)
-[![YouTube Video Views](https://img.shields.io/youtube/views/SoxmIlgf2zM?style=social)](https://youtu.be/SoxmIlgf2zM)
+
 
 This is a fully responsive personal portfolio website, responsive for all devices, built using HTML, CSS, and JavaScript.
 
 ## Demo
 
-![vCard Desktop Demo](./website-demo-image/desktop.png "Desktop Demo")
-![vCard Mobile Demo](./website-demo-image/mobile.png "Mobile Demo")
+![Portifolio Desktop Demo](./website-demo-image/desktop.png "Desktop Demo")
+![Portifoli Mobile Demo](./website-demo-image/mobile.png "Mobile Demo")
+
+## Live Demo
+<a href="https://brianmurutu.github.io" target="_blank" rel="noopener noreferrer">CLICK ME TO OPEN LIVE</a>
+
 
 ## Prerequisites
 
@@ -21,15 +25,15 @@ Before you begin, ensure you have met the following requirements:
 
 ## Installing The Portifolio
 
-To install **vCard**, follow these steps:
+To install **This Portifolio**, follow these steps:
 
-Linux and macOS:
+### Linux and macOS:
 
 ```bash
 sudo git clone https://github.com/brianmurutu/brianmurutu.github.git
 ```
 
-Windows:
+### Windows:
 
 ```bash
 git clone https://github.com/brianmurutu/brianmurutu.github.git
