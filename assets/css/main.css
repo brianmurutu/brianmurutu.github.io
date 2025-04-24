@@ -10158,7 +10158,7 @@ Location:
   border-radius: 4px;
   border: 1px solid var(--ztc-border-border-1);
   padding: 24px 28px;
-  margin: 20px 30px 0 0;
+  margin: 20px 20px 0 0;
 }
 .homepage1-body .contact-section-area .contact-header-area .contact-text-area .contact-info-area .info-boxarea:hover {
   border: 1px solid var(--ztc-text-text-2) !important;
