@@ -2084,3 +2084,208 @@
           height: 10px;
      }
 }
+/* ==========================================================================
+   Comprehensive Mobile Responsiveness & Logo Visibility Enhancements
+   ========================================================================== */
+
+/* Logo Global Sizing */
+#logo {
+    display: flex;
+    align-items: center;
+}
+
+#logo img {
+    max-width: none !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: 64px !important;
+    display: inline-block !important;
+    filter: drop-shadow(0 4px 12px rgba(66, 80, 245, 0.25));
+}
+
+.header-padding {
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
+}
+
+/* Mobile & Tablet Breakpoint (max-width: 991px) */
+@media screen and (max-width: 991px) {
+    #logo img {
+        max-height: 54px !important;
+    }
+
+    .hero-area-height {
+        height: auto !important;
+        min-height: auto !important;
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+    }
+
+    .hero-img-wrapper {
+        max-width: 320px;
+        margin: 0 auto 30px auto;
+    }
+
+    .hero-content {
+        padding-left: 0 !important;
+        text-align: center !important;
+    }
+
+    .hero-content h1 {
+        font-size: 46px !important;
+        line-height: 1.1 !important;
+    }
+
+    .hero-content h3 {
+        font-size: 20px !important;
+        margin-bottom: 25px !important;
+    }
+
+    .hero-content .sub-title {
+        font-size: 20px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .about-info {
+        padding-left: 0 !important;
+        margin-top: 25px !important;
+    }
+
+    .about-info ul {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .about-info ul li {
+        width: 100% !important;
+        padding-right: 0 !important;
+    }
+
+    .about-info .info-details span {
+        margin-bottom: 12px !important;
+    }
+
+    .portfolio-menu button {
+        margin: 4px 6px !important;
+        padding: 8px 18px !important;
+        font-size: 14px !important;
+    }
+
+    .single-portfolio {
+        margin-bottom: 25px !important;
+    }
+
+    .tech-card {
+        padding: 22px 18px !important;
+        margin-bottom: 20px !important;
+    }
+}
+
+/* Mobile Small Devices (max-width: 767px) */
+@media screen and (max-width: 767px) {
+    #logo img {
+        max-height: 48px !important;
+    }
+
+    .header-padding {
+        padding-top: 14px !important;
+        padding-bottom: 14px !important;
+    }
+
+    .hero-img-wrapper {
+        max-width: 260px;
+    }
+
+    .hero-content h1 {
+        font-size: 38px !important;
+        line-height: 1.15 !important;
+    }
+
+    .hero-content h3 {
+        font-size: 17px !important;
+    }
+
+    .hero-content h3 span {
+        font-size: 18px !important;
+    }
+
+    .content-wrapper-padding {
+        padding: 35px 18px 25px 18px !important;
+    }
+
+    .title h2 {
+        font-size: 24px !important;
+        padding-left: 15px !important;
+    }
+
+    .single-service {
+        padding: 30px 20px 20px 20px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .single-experience {
+        padding-left: 24px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .single-experience h4 {
+        font-size: 17px !important;
+    }
+
+    .contact-info-content .contact-location,
+    .contact-info-content .contact-phone,
+    .contact-info-content .contact-email {
+        margin-bottom: 18px !important;
+    }
+
+    .contact-form-wrapper h2 {
+        font-size: 24px !important;
+        margin-bottom: 30px !important;
+    }
+
+    .footer-area {
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+        text-align: center !important;
+    }
+
+    .useful-link {
+        margin-top: 12px !important;
+        text-align: center !important;
+    }
+
+    .useful-link li {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+}
+
+/* Extra Small Mobile (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    #logo img {
+        max-height: 42px !important;
+    }
+
+    .hero-content h1 {
+        font-size: 32px !important;
+    }
+
+    .hero-content h3 {
+        font-size: 15px !important;
+    }
+
+    .my-btn .btn {
+        padding: 10px 28px !important;
+        font-size: 14px !important;
+    }
+
+    .portfolio-menu button {
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+    }
+
+    .tech-tags .badge {
+        font-size: 12px !important;
+        padding: 5px 8px !important;
+    }
+}
