@@ -121,68 +121,54 @@
 		}
 	}
 
-	// 8. Contact form with Formspree & Web3Forms fallback
+	// 8. Contact form with Formspree (AJAX submission)
     //---------------------------------------------------------------------------
     $(function() {
-		var form = $('#contact-form');
-		var formMessages = $('.form-message');
+		var contactForm = document.getElementById('contact-form');
+		if (!contactForm) return;
 
-		$(form).submit(function(event) {
+		var $form = $(contactForm);
+		var $formMessages = $('.form-message');
+		var $submitBtn = $form.find('button[type="submit"]');
+		var originalBtnHtml = $submitBtn.html();
+
+		$form.on('submit', function(event) {
 			event.preventDefault();
 
-			var submitBtn = $(form).find('button[type="submit"]');
-			var originalBtnText = submitBtn.html();
-			submitBtn.prop('disabled', true).html('<span>Sending...</span>');
-			$(formMessages).removeClass('error success').text('');
+			// Loading state
+			$submitBtn.prop('disabled', true).html('<span>Sending... <i class="fas fa-spinner fa-spin ml-2"></i></span>');
+			$formMessages.removeClass('error success').text('').hide();
 
-			var formData = $(form).serialize();
-			var formAction = $(form).attr('action') || 'https://formspree.io/f/murutubrian@gmail.com';
+			var endpoint = contactForm.action || 'https://formspree.io/f/mbgjpava';
+			var formData = new FormData(contactForm);
 
-			// Attempt AJAX post to configured action
-			$.ajax({
-				type: 'POST',
-				url: formAction,
-				data: formData,
-				dataType: 'json',
+			fetch(endpoint, {
+				method: 'POST',
+				body: formData,
 				headers: {
 					'Accept': 'application/json'
 				}
-			}).done(function(response) {
-				submitBtn.prop('disabled', false).html(originalBtnText);
-				$(formMessages).removeClass('error').addClass('success').text('Thank you! Your message has been sent successfully.');
-				if (form[0]) form[0].reset();
-			}).fail(function(xhr) {
-				// Fallback to Web3Forms direct delivery to murutubrian@gmail.com
-				var web3Payload = {
-					access_key: "0cdd32fff-eda2-4da3-be43-37d47fbb396b",
-					name: $(form).find('input[name="name"]').val(),
-					email: $(form).find('input[name="email"], input[name="_replyto"]').val(),
-					phone: $(form).find('input[name="phone"]').val(),
-					subject: $(form).find('input[name="subject"]').val(),
-					message: $(form).find('textarea[name="message"]').val()
-				};
-
-				fetch('https://api.web3forms.com/submit', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-						'Accept': 'application/json'
-					},
-					body: JSON.stringify(web3Payload)
-				}).then(function(res) {
-					return res.json();
-				}).then(function(json) {
-					submitBtn.prop('disabled', false).html(originalBtnText);
-					if (json.success) {
-						$(formMessages).removeClass('error').addClass('success').text('Thank you! Your message has been sent successfully.');
-						if (form[0]) form[0].reset();
-					} else {
-						$(formMessages).removeClass('success').addClass('error').text(json.message || 'Thank you for reaching out. Message sent!');
-					}
-				}).catch(function() {
-					submitBtn.prop('disabled', false).html(originalBtnText);
-					$(formMessages).removeClass('success').addClass('error').text('Could not send message. Please email murutubrian@gmail.com directly.');
-				});
+			}).then(function(response) {
+				$submitBtn.prop('disabled', false).html(originalBtnHtml);
+				if (response.ok) {
+					$formMessages.removeClass('error').addClass('success').text("Thank you! Your message has been sent successfully. I'll get back to you shortly.").fadeIn();
+					contactForm.reset();
+				} else {
+					response.json().then(function(data) {
+						var errorMsg = "Oops! There was a problem submitting your form.";
+						if (data && data.errors && data.errors.length > 0) {
+							errorMsg = data.errors.map(function(error) { return error.message; }).join(", ");
+						} else if (data && data.error) {
+							errorMsg = data.error;
+						}
+						$formMessages.removeClass('success').addClass('error').text(errorMsg).fadeIn();
+					}).catch(function() {
+						$formMessages.removeClass('success').addClass('error').text("Oops! There was a problem submitting your form.").fadeIn();
+					});
+				}
+			}).catch(function(error) {
+				$submitBtn.prop('disabled', false).html(originalBtnHtml);
+				$formMessages.removeClass('success').addClass('error').text("Oops! There was a network error. Please try again or email directly to murutubrian@gmail.com").fadeIn();
 			});
 		});
 	});

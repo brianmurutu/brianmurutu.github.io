@@ -893,8 +893,38 @@ span.social-text{
 .reply-form.contact-form .mb-10 {
 	margin-bottom: 15px;
 }
-.contact-form .form-message.error {
-	color: red;
+.form-message {
+	display: none;
+	font-size: 15px;
+	font-weight: 500;
+	padding: 12px 18px;
+	border-radius: 8px;
+	margin-top: 15px;
+	transition: all 0.3s ease;
+}
+.form-message.success {
+	display: block;
+	color: #0f5132;
+	background-color: #d1e7dd;
+	border: 1px solid #badbcc;
+}
+.form-message.error {
+	display: block;
+	color: #842029;
+	background-color: #f8d7da;
+	border: 1px solid #f5c2c7;
+}
+body.dark-mode .form-message.success,
+.dark-theme .form-message.success {
+	color: #75b798;
+	background-color: rgba(21, 87, 36, 0.3);
+	border: 1px solid rgba(117, 183, 152, 0.4);
+}
+body.dark-mode .form-message.error,
+.dark-theme .form-message.error {
+	color: #ea868f;
+	background-color: rgba(114, 28, 36, 0.3);
+	border: 1px solid rgba(234, 134, 143, 0.4);
 }
 
 
