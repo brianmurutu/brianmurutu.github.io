@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" width="320" height="64">
+  <defs>
+    <linearGradient id="logo-badge-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4250f5"/>
+      <stop offset="50%" stop-color="#00d2ff"/>
+      <stop offset="100%" stop-color="#3a7bd5"/>
+    </linearGradient>
+    <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="100%" stop-color="#4facfe"/>
+    </linearGradient>
+    <filter id="logo-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Logo Emblem Icon -->
+  <g transform="translate(6, 6)">
+    <!-- Hexagon / Squircle Badge -->
+    <rect x="0" y="0" width="52" height="52" rx="14" fill="#161b2e" stroke="url(#logo-badge-grad)" stroke-width="2.5"/>
+    
+    <!-- Code Bracket and Monogram -->
+    <path d="M 12 21 L 6 26 L 12 31" fill="none" stroke="url(#accent-grad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 40 21 L 46 26 L 40 31" fill="none" stroke="url(#accent-grad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- BM Letters -->
+    <text x="17" y="34" font-family="'Open Sans', -apple-system, sans-serif" font-weight="900" font-size="20" fill="#ffffff" letter-spacing="-0.5">BM</text>
+  </g>
+
+  <!-- Typography Brand Text -->
+  <g transform="translate(70, 0)">
+    <!-- Main Brand Name -->
+    <text x="0" y="35" font-family="'CircularStdBold', 'Open Sans', sans-serif" font-weight="800" font-size="26" fill="#ffffff" letter-spacing="0.5">
+      Sir. <tspan fill="url(#logo-badge-grad)">Brian</tspan>
+    </text>
+    
+    <!-- Subtitle / Tagline -->
+    <text x="1" y="52" font-family="'Open Sans', sans-serif" font-weight="700" font-size="9.5" fill="#a0aec0" letter-spacing="2.5" text-transform="uppercase">
+      IT ARCHITECT &amp; DEV
+    </text>
+  </g>
+</svg>
