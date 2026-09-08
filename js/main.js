@@ -7,10 +7,120 @@
 	// 2. background image
 	// 3. Animate the scroll to top
 	// 4. Cats Filter
-	// 4. Circular Bars - Knob
-	// 5. accordion js
-	// 6. tilt js
+	// 5. Circular Bars - Knob
+	// 6. accordion js
 	// 7. mixitup js
+	// 8. Contact form with Formspree & Web3Forms fallback
+	//-------------------------------------------------
+ 
+	// 1. preloader (Safe hide on load + 1.2s fallback timeout)
+	//---------------------------------------------------------------------------
+	function hidePreloader() {
+		var preloader = $('#preloader');
+		if (preloader.length) {
+			preloader.fadeOut(400, function() {
+				$(this).remove();
+			});
+		}
+	}
+
+	$(window).on('load', function() {
+		hidePreloader();
+	});
+
+	$(document).ready(function() {
+		// Guaranteed fallback in case any external asset is delayed
+		setTimeout(hidePreloader, 1200);
+	});
+ 
+	// 2. background image
+	//---------------------------------------------------------------------------
+	$("[data-background]").each(function (){
+	    $(this).css("background-image", "url(" + $(this).attr("data-background") + ")");
+	});
+ 
+	// 3. Animate the scroll to top
+    // --------------------------------------------------------------------------
+	$(window).on('scroll', function() {
+		if ($(this).scrollTop() > 100) {
+			$('#scroll').addClass('show');
+		} else {
+			$('#scroll').removeClass('show');
+		}
+	});
+
+	$('#scroll').on('click', function(event) {
+		event.preventDefault();
+		$('html, body').animate({
+			scrollTop: 0,
+		}, 600);
+	});
+
+	// 4. Cats Filter
+    // ---------------------------------------------------------------------------
+	var $catsfilter = $('.cats-filter');
+	$catsfilter.find('a').click(function() {
+		var currentOption = $(this).attr('data-filter');
+		$(this).parent().parent().find('a').removeClass('current');
+		$(this).addClass('current');
+	});
+
+    // 5. Circular Bars - Knob
+    // ---------------------------------------------------------------------------
+	if (typeof ($.fn.knob) != 'undefined') {
+		$('.knob').each(function () {
+			var $this = $(this),
+			knobVal = $this.attr('data-rel');
+	
+			$this.knob({
+				'draw': function () {
+					$(this.i).val(this.cv + '%');
+				}
+			});
+ 
+			if (typeof ($.fn.appear) != 'undefined') {
+				$this.appear(function () {
+					$({
+						value: 0
+					}).animate({
+						value: knobVal
+					}, {
+						duration: 2000,
+						easing: 'swing',
+						step: function () {
+							$this.val(Math.ceil(this.value)).trigger('change');
+						}
+					});
+				}, {
+					accX: 0,
+					accY: -150
+				});
+			} else {
+				$this.val(knobVal).trigger('change');
+			}
+		});
+ 	}
+
+	// 6. accordion js
+    // ---------------------------------------------------------------------------
+	if (typeof ($.fn.collapse) != 'undefined') {
+		$('.accordion-page-wrapper .collapse').collapse();
+	}
+
+	// 7. mixitup js
+    // --------------------------------------------------------------------------
+	if (typeof mixitup !== 'undefined' && $('.mixitup-gallery').length) {
+		try {
+			mixitup('.mixitup-gallery', {
+				selectors: {
+					control: '[data-mixitup-control]'
+				}
+			});
+		} catch (e) {
+			console.log('MixItUp init notice:', e);
+		}
+	}
+
 	// 8. Contact form with Formspree & Web3Forms fallback
     //---------------------------------------------------------------------------
     $(function() {

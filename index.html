@@ -23,6 +23,21 @@
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body class="particles-body-bg">
+    <script>
+        (function() {
+            function removePreloader() {
+                var p = document.getElementById('preloader');
+                if (p) {
+                    p.style.transition = 'opacity 0.4s ease, visibility 0.4s ease';
+                    p.style.opacity = '0';
+                    p.style.visibility = 'hidden';
+                    setTimeout(function() { if (p && p.parentNode) p.parentNode.removeChild(p); }, 450);
+                }
+            }
+            window.addEventListener('load', removePreloader);
+            setTimeout(removePreloader, 1000);
+        })();
+    </script>
     <div id="preloader">
         <div id="loading">
             <div id="loading-center">
