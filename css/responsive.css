@@ -862,7 +862,7 @@
           font-size: 12px;
      }
      .hero-img-wrapper {
-          width: 130px !important;
+          max-width: 180px;
      }
      .hero-content {
           margin-bottom: 20px;
@@ -922,7 +922,7 @@
           font-size: 11px;
      }
      .hero-img-wrapper {
-          width: 100px !important;
+          max-width: 160px;
      }
      .hero-content {
           margin-bottom: 10px;
@@ -1994,7 +1994,7 @@
           font-size: 13px;
      }
      .hero-img-wrapper {
-          width: 40px !important;
+          max-width: 150px;
      }
      .hero-content {
           margin-bottom: 8px;
@@ -2085,10 +2085,21 @@
      }
 }
 /* ==========================================================================
-   Comprehensive Mobile Responsiveness & Logo Visibility Enhancements
+   Comprehensive Mobile Responsiveness, Hero Image Architecture & Viewport Polish
    ========================================================================== */
 
-/* Logo Global Sizing */
+/* Universal Image Safety - Prevent any image from overflowing viewports */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw;
+}
+
+/* Header & Logo Sizing */
 #logo {
     display: flex;
     align-items: center;
@@ -2098,7 +2109,7 @@
     max-width: none !important;
     width: auto !important;
     height: auto !important;
-    max-height: 64px !important;
+    max-height: 60px !important;
     display: inline-block !important;
     filter: drop-shadow(0 4px 12px rgba(66, 80, 245, 0.25));
 }
@@ -2108,61 +2119,385 @@
     padding-bottom: 18px !important;
 }
 
-/* Mobile & Tablet Breakpoint (max-width: 991px) */
+/* ==========================================================================
+   HERO SECTION & IMAGE ARCHITECTURE (Desktop & Mobile)
+   ========================================================================== */
+
+/* Hero Container Dimensions & Layout */
+.hero-area {
+    min-height: 580px;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-area-height {
+    height: calc(100vh - 210px);
+    min-height: 560px;
+    max-height: 780px;
+    margin-bottom: -36px;
+}
+
+.hero-row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Hero Content (Left column on Desktop) */
+.hero-text-col {
+    z-index: 12;
+}
+
+.hero-content {
+    padding-left: 40px;
+    padding-right: 20px;
+}
+
+.hero-heading {
+    font-size: 76px !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.02em;
+}
+
+.hero-subheading {
+    font-size: 22px !important;
+    line-height: 1.4 !important;
+    min-height: 58px;
+}
+
+.hero-subheading span.typer {
+    font-size: 24px !important;
+    color: #60a5fa !important;
+    font-weight: 700;
+}
+
+/* Hero Image & Portrait Card (Right column on Desktop) */
+.hero-img-col {
+    z-index: 12;
+}
+
+.hero-img-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ambient Radial Glow */
+.hero-ambient-glow {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(66, 80, 245, 0.55) 0%, rgba(99, 102, 241, 0.25) 45%, rgba(7, 19, 93, 0) 70%);
+    filter: blur(28px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Glassmorphic Portrait Frame */
+.hero-portrait-card {
+    position: relative;
+    width: 100%;
+    max-width: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 15px;
+}
+
+.hero-img {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    text-align: center;
+}
+
+.hero-person-img {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    max-height: 470px;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.45));
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, rgba(0, 0, 0, 0.4) 93%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, rgba(0, 0, 0, 0.4) 93%, transparent 100%);
+    transition: transform 0.3s ease;
+}
+
+/* Floating "Available for Hire" Badge */
+.hero-badge {
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    border-radius: 50px;
+    padding: 7px 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    z-index: 4;
+}
+
+.badge-pulse-dot {
+    width: 9px;
+    height: 9px;
+    background-color: #10b981;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 9px rgba(16, 185, 129, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}
+
+.hero-badge .badge-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+    font-family: "CircularStdBold", sans-serif;
+    letter-spacing: 0.2px;
+}
+
+/* ==========================================================================
+   NAVIGATION TABS BAR (Desktop & Mobile)
+   ========================================================================== */
+.menu {
+    position: relative;
+    height: 60px;
+    margin-top: -30px;
+    z-index: 50;
+}
+
+.menu .tabs {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* About Section & Person Image */
+.about-person-img {
+    max-width: 100%;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin: 0 auto;
+}
+
+/* About Info Key-Value List */
+.about-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.about-info-row {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.about-info-row:last-child {
+    border-bottom: none !important;
+}
+
+.about-info-row .info-label {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary-color, #1e293b);
+    flex-shrink: 0;
+    margin-right: 15px;
+}
+
+.about-info-row .info-val {
+    font-size: 15px;
+    color: #64748b;
+    word-break: break-word;
+}
+
+.about-info-row .info-val a {
+    color: #4250f5;
+    transition: color 0.2s ease;
+}
+
+.about-info-row .info-val a:hover {
+    color: #2b39cc;
+    text-decoration: underline;
+}
+
+/* Testimonial Person Image */
+.testimonial-person-img {
+    max-width: 100%;
+    max-height: 420px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.2));
+}
+
+/* ==========================================================================
+   BREAKPOINTS: Medium Desktops & Laptops (min-width: 992px) and (max-width: 1199px)
+   ========================================================================== */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .hero-content {
+        padding-left: 15px;
+        padding-right: 10px;
+    }
+    .hero-heading {
+        font-size: 58px !important;
+    }
+    .hero-subheading {
+        font-size: 20px !important;
+    }
+    .hero-subheading span.typer {
+        font-size: 21px !important;
+    }
+    .hero-person-img {
+        max-height: 410px;
+    }
+    .hero-portrait-card {
+        max-width: 320px;
+    }
+}
+
+/* ==========================================================================
+   TABLET & MOBILE BREAKPOINT (max-width: 991px)
+   ========================================================================== */
 @media screen and (max-width: 991px) {
+    #magicMouseCursor, #magicPointer {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
     #logo img {
-        max-height: 54px !important;
+        max-height: 52px !important;
     }
 
     .hero-area-height {
         height: auto !important;
         min-height: auto !important;
-        padding-top: 40px !important;
-        padding-bottom: 40px !important;
+        max-height: none !important;
+        margin-bottom: 0 !important;
+        padding-top: 36px !important;
+        padding-bottom: 50px !important;
+    }
+
+    .hero-container-inner {
+        height: auto !important;
+    }
+
+    /* Hero Portrait on Tablet/Mobile: Compact & Centered on Top */
+    .hero-img-col {
+        margin-bottom: 25px;
     }
 
     .hero-img-wrapper {
-        max-width: 320px;
-        margin: 0 auto 30px auto;
+        max-width: 280px;
+        margin: 0 auto;
     }
 
+    .hero-ambient-glow {
+        width: 220px;
+        height: 220px;
+    }
+
+    .hero-portrait-card {
+        max-width: 240px;
+        padding-top: 10px;
+    }
+
+    .hero-person-img {
+        max-height: 290px;
+        margin: 0 auto;
+    }
+
+    .hero-img-gradient-fade {
+        height: 50px;
+    }
+
+    .hero-badge {
+        bottom: 8px;
+        padding: 5px 14px;
+    }
+
+    .hero-badge .badge-text {
+        font-size: 12px;
+    }
+
+    /* Hero Content on Tablet/Mobile */
     .hero-content {
         padding-left: 0 !important;
+        padding-right: 0 !important;
         text-align: center !important;
     }
 
-    .hero-content h1 {
-        font-size: 46px !important;
-        line-height: 1.1 !important;
+    .hero-heading {
+        font-size: 52px !important;
+        line-height: 1.12 !important;
+        margin-bottom: 15px !important;
     }
 
-    .hero-content h3 {
-        font-size: 20px !important;
+    .hero-subheading {
+        font-size: 19px !important;
         margin-bottom: 25px !important;
+        min-height: auto;
+    }
+
+    .hero-subheading span.typer {
+        font-size: 20px !important;
+        display: inline-block;
+    }
+
+    .hero-btn-group {
+        justify-content: center !important;
     }
 
     .hero-content .sub-title {
-        font-size: 20px !important;
+        font-size: 19px !important;
         margin-bottom: 10px !important;
+    }
+
+    /* Navigation Menu on Tablet */
+    .menu {
+        margin-top: -24px;
+        height: auto;
+    }
+
+    .menu .tabs {
+        flex-wrap: wrap !important;
+        gap: 6px;
     }
 
     .about-info {
         padding-left: 0 !important;
         margin-top: 25px !important;
-    }
-
-    .about-info ul {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-    }
-
-    .about-info ul li {
-        width: 100% !important;
-        padding-right: 0 !important;
-    }
-
-    .about-info .info-details span {
-        margin-bottom: 12px !important;
     }
 
     .portfolio-menu button {
@@ -2181,10 +2516,12 @@
     }
 }
 
-/* Mobile Small Devices (max-width: 767px) */
+/* ==========================================================================
+   MOBILE SMALL BREAKPOINT (max-width: 767px)
+   ========================================================================== */
 @media screen and (max-width: 767px) {
     #logo img {
-        max-height: 48px !important;
+        max-height: 46px !important;
     }
 
     .header-padding {
@@ -2192,25 +2529,93 @@
         padding-bottom: 14px !important;
     }
 
-    .hero-img-wrapper {
-        max-width: 260px;
+    .hero-area-height {
+        padding-top: 28px !important;
+        padding-bottom: 42px !important;
     }
 
-    .hero-content h1 {
+    /* Hero Portrait on Mobile */
+    .hero-img-col {
+        margin-bottom: 20px;
+    }
+
+    .hero-img-wrapper {
+        max-width: 230px;
+    }
+
+    .hero-ambient-glow {
+        width: 180px;
+        height: 180px;
+    }
+
+    .hero-portrait-card {
+        max-width: 200px;
+    }
+
+    .hero-person-img {
+        max-height: 240px;
+    }
+
+    .hero-badge {
+        bottom: 6px;
+        padding: 4px 12px;
+    }
+
+    .hero-badge .badge-text {
+        font-size: 11px;
+    }
+
+    /* Hero Content on Mobile */
+    .hero-heading {
         font-size: 38px !important;
         line-height: 1.15 !important;
+        margin-bottom: 12px !important;
     }
 
-    .hero-content h3 {
+    .hero-subheading {
+        font-size: 16px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .hero-subheading span.typer {
         font-size: 17px !important;
     }
 
-    .hero-content h3 span {
-        font-size: 18px !important;
+    .hero-content .sub-title {
+        font-size: 16px !important;
+        margin-bottom: 6px !important;
+    }
+
+    /* Tabs Bar Mobile Polish: Smooth Touch Horizontal Scrolling */
+    .menu {
+        margin-top: -22px;
+        margin-bottom: 10px;
+        height: auto;
+        padding: 0 10px;
+    }
+
+    .menu .tabs {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        justify-content: flex-start !important;
+        padding: 6px 4px !important;
+        gap: 6px;
+    }
+
+    .menu .tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .menu .tabs li {
+        flex-shrink: 0 !important;
+        margin-right: 0 !important;
     }
 
     .content-wrapper-padding {
-        padding: 35px 18px 25px 18px !important;
+        padding: 30px 16px 25px 16px !important;
     }
 
     .title h2 {
@@ -2218,18 +2623,28 @@
         padding-left: 15px !important;
     }
 
+    .about-info-row .info-label {
+        font-size: 14px;
+        margin-right: 10px;
+    }
+
+    .about-info-row .info-val {
+        font-size: 14px;
+    }
+
     .single-service {
-        padding: 30px 20px 20px 20px !important;
+        padding: 28px 18px 20px 18px !important;
         margin-bottom: 20px !important;
+        margin-right: 0 !important;
     }
 
     .single-experience {
-        padding-left: 24px !important;
+        padding-left: 20px !important;
         margin-bottom: 20px !important;
     }
 
     .single-experience h4 {
-        font-size: 17px !important;
+        font-size: 16px !important;
     }
 
     .contact-info-content .contact-location,
@@ -2239,8 +2654,8 @@
     }
 
     .contact-form-wrapper h2 {
-        font-size: 24px !important;
-        margin-bottom: 30px !important;
+        font-size: 22px !important;
+        margin-bottom: 25px !important;
     }
 
     .footer-area {
@@ -2255,27 +2670,50 @@
     }
 
     .useful-link li {
-        padding-left: 10px !important;
-        padding-right: 10px !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
     }
 }
 
-/* Extra Small Mobile (max-width: 480px) */
+/* ==========================================================================
+   EXTRA SMALL MOBILE BREAKPOINT (max-width: 480px)
+   ========================================================================== */
 @media screen and (max-width: 480px) {
     #logo img {
-        max-height: 42px !important;
+        max-height: 40px !important;
     }
 
-    .hero-content h1 {
+    .header-padding .my-btn .btn {
+        padding: 8px 16px !important;
+        font-size: 13px !important;
+    }
+
+    .hero-img-wrapper {
+        max-width: 190px;
+    }
+
+    .hero-portrait-card {
+        max-width: 180px;
+    }
+
+    .hero-person-img {
+        max-height: 210px;
+    }
+
+    .hero-heading {
         font-size: 32px !important;
     }
 
-    .hero-content h3 {
+    .hero-subheading {
+        font-size: 15px !important;
+    }
+
+    .hero-subheading span.typer {
         font-size: 15px !important;
     }
 
     .my-btn .btn {
-        padding: 10px 28px !important;
+        padding: 9px 22px !important;
         font-size: 14px !important;
     }
 
@@ -2285,7 +2723,18 @@
     }
 
     .tech-tags .badge {
-        font-size: 12px !important;
-        padding: 5px 8px !important;
+        font-size: 11px !important;
+        padding: 4px 7px !important;
+    }
+
+    .about-info-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding-bottom: 8px !important;
+    }
+
+    .about-info-row .info-val {
+        text-align: left !important;
+        margin-top: 2px;
     }
 }

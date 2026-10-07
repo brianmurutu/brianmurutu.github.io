@@ -30,35 +30,37 @@
 		}
 	});
 
-	// Menu Carousel Navigation
-	$(".menu .tabs").carouFredSel({
-        responsive          : true,
-        direction           : "left",
- 	    circular: false,
-    	infinite: false,
-        pagination  		: "#menu-controls",  
-        auto    			: false,
-        scroll 			: {
-            items           : 1,
-            duration        : 300,                        
-            wipe    : true
-        },
-		prev	: {	
-			button	: "#menu-prev",
-			key		: "right"
-		},
-		next	: { 
-			button	: "#menu-next",
-			key		: "left"
-		},
-	    swipe: {
-	        onTouch: true
-	    },
-        items: {
-            width: 140,
-            visible: {
-              min: 2,
-              max: 5
-            }
-        }           
-    });
+	// Menu Carousel Navigation (only if carousel controls are present)
+	if ($("#menu-controls").length && typeof $.fn.carouFredSel !== "undefined") {
+		$(".menu .tabs").carouFredSel({
+	        responsive          : true,
+	        direction           : "left",
+	 	    circular: false,
+	    	infinite: false,
+	        pagination  		: "#menu-controls",  
+	        auto    			: false,
+	        scroll 			: {
+	            items           : 1,
+	            duration        : 300,                        
+	            wipe    : true
+	        },
+			prev	: {	
+				button	: "#menu-prev",
+				key		: "right"
+			},
+			next	: { 
+				button	: "#menu-next",
+				key		: "left"
+			},
+		    swipe: {
+		        onTouch: true
+		    },
+	        items: {
+	            width: 140,
+	            visible: {
+	              min: 2,
+	              max: 5
+	            }
+	        }           
+	    });
+	}
