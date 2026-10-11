@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="about-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070b16"/>
+      <stop offset="60%" stop-color="#0a1024"/>
+      <stop offset="100%" stop-color="#0e1730"/>
+    </linearGradient>
+    <linearGradient id="about-border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(36, 123, 255, 0.5)"/>
+      <stop offset="50%" stop-color="rgba(255, 53, 79, 0.25)"/>
+      <stop offset="100%" stop-color="rgba(36, 123, 255, 0.1)"/>
+    </linearGradient>
+    <linearGradient id="bar-blue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#247bff"/>
+      <stop offset="100%" stop-color="#00d2ff"/>
+    </linearGradient>
+    <linearGradient id="bar-crimson" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff354f"/>
+      <stop offset="100%" stop-color="#ff758c"/>
+    </linearGradient>
+    <pattern id="about-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.04)"/>
+    </pattern>
+  </defs>
+
+  <style>
+    .font-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', 'Helvetica Neue', sans-serif; }
+    .font-mono { font-family: 'SF Mono', Consolas, Monaco, 'Liberation Mono', Menlo, monospace; }
+  </style>
+
+  <!-- Container -->
+  <rect x="2" y="2" width="876" height="316" rx="20" fill="url(#about-bg-grad)" stroke="url(#about-border-grad)" stroke-width="1.5"/>
+  <rect x="2" y="2" width="876" height="316" rx="20" fill="url(#about-dots)"/>
+
+  <!-- Left Column: Core Engineering Capabilities -->
+  <g transform="translate(45, 38)">
+    <text class="font-mono" x="0" y="0" fill="#247bff" font-size="12" font-weight="700" letter-spacing="1.5">ENGINEERING PROFICIENCY</text>
+    <text class="font-sans" x="0" y="26" fill="#ffffff" font-size="22" font-weight="800">Capabilities &amp; Depth</text>
+
+    <!-- Bar 1: Full-Stack Web Dev -->
+    <g transform="translate(0, 52)">
+      <text class="font-sans" x="0" y="14" fill="#cbd5e1" font-size="13" font-weight="600">Full-Stack Web (Next.js, React, Node)</text>
+      <text class="font-mono" x="350" y="14" fill="#00d2ff" font-size="12" font-weight="700" text-anchor="end">98%</text>
+      <rect x="0" y="22" width="350" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+      <rect x="0" y="22" width="343" height="8" rx="4" fill="url(#bar-blue)"/>
+    </g>
+
+    <!-- Bar 2: Systems Architecture & Servers -->
+    <g transform="translate(0, 102)">
+      <text class="font-sans" x="0" y="14" fill="#cbd5e1" font-size="13" font-weight="600">Systems Architecture &amp; Linux Servers</text>
+      <text class="font-mono" x="350" y="14" fill="#ff758c" font-size="12" font-weight="700" text-anchor="end">94%</text>
+      <rect x="0" y="22" width="350" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+      <rect x="0" y="22" width="329" height="8" rx="4" fill="url(#bar-crimson)"/>
+    </g>
+
+    <!-- Bar 3: APIs & M-Pesa Gateways -->
+    <g transform="translate(0, 152)">
+      <text class="font-sans" x="0" y="14" fill="#cbd5e1" font-size="13" font-weight="600">APIs &amp; Payment Integrations (M-Pesa)</text>
+      <text class="font-mono" x="350" y="14" fill="#00d2ff" font-size="12" font-weight="700" text-anchor="end">95%</text>
+      <rect x="0" y="22" width="350" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+      <rect x="0" y="22" width="332" height="8" rx="4" fill="url(#bar-blue)"/>
+    </g>
+
+    <!-- Bar 4: Cloud, Docker & SEO -->
+    <g transform="translate(0, 202)">
+      <text class="font-sans" x="0" y="14" fill="#cbd5e1" font-size="13" font-weight="600">Cloud, DevOps &amp; Technical SEO</text>
+      <text class="font-mono" x="350" y="14" fill="#ff758c" font-size="12" font-weight="700" text-anchor="end">92%</text>
+      <rect x="0" y="22" width="350" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+      <rect x="0" y="22" width="322" height="8" rx="4" fill="url(#bar-crimson)"/>
+    </g>
+  </g>
+
+  <!-- Vertical Divider -->
+  <line x1="435" y1="35" x2="435" y2="285" stroke="rgba(255,255,255,0.08)" stroke-dasharray="4 4"/>
+
+  <!-- Right Column: 3-Slide Interests Carousel (Changing every 4 seconds) -->
+  <g transform="translate(470, 38)">
+    <text class="font-mono" x="0" y="0" fill="#ff354f" font-size="12" font-weight="700" letter-spacing="1.5">BEYOND THE CODE</text>
+    <text class="font-sans" x="0" y="26" fill="#ffffff" font-size="22" font-weight="800">Life &amp; Passions</text>
+
+    <!-- Carousel Card Shell -->
+    <rect x="0" y="46" width="365" height="175" rx="14" fill="#0d1527" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+    <!-- SLIDE 1 (Active 0s - 4s) -->
+    <g transform="translate(20, 68)">
+      <animate attributeName="opacity" values="1;1;0;0;0;0;1" keyTimes="0;0.31;0.34;0.96;0.97;0.99;1" dur="12s" repeatCount="indefinite"/>
+      <rect x="0" y="0" width="38" height="38" rx="8" fill="rgba(36,123,255,0.15)"/>
+      <text x="19" y="25" font-size="20" text-anchor="middle">💻</text>
+      <text class="font-sans" x="50" y="18" fill="#ffffff" font-size="16" font-weight="700">Open Source &amp; Architecture</text>
+      <text class="font-mono" x="50" y="34" fill="#00d2ff" font-size="11" font-weight="600">PASSION 01 / 03</text>
+      <text class="font-sans" x="0" y="68" fill="#94a3b8" font-size="13" font-weight="400">
+        Active contributor to community tools, documenting
+      </text>
+      <text class="font-sans" x="0" y="88" fill="#94a3b8" font-size="13" font-weight="400">
+        modern distributed patterns, and engineering
+      </text>
+      <text class="font-sans" x="0" y="108" fill="#94a3b8" font-size="13" font-weight="400">
+        battle-tested architectures for African enterprises.
+      </text>
+    </g>
+
+    <!-- SLIDE 2 (Active 4s - 8s) -->
+    <g transform="translate(20, 68)" opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0;0;0" keyTimes="0;0.33;0.36;0.64;0.67;0.99;1" dur="12s" repeatCount="indefinite"/>
+      <rect x="0" y="0" width="38" height="38" rx="8" fill="rgba(255,53,79,0.15)"/>
+      <text x="19" y="25" font-size="20" text-anchor="middle">🎓</text>
+      <text class="font-sans" x="50" y="18" fill="#ffffff" font-size="16" font-weight="700">IT Mentoring &amp; Coaching</text>
+      <text class="font-mono" x="50" y="34" fill="#ff758c" font-size="11" font-weight="600">PASSION 02 / 03</text>
+      <text class="font-sans" x="0" y="68" fill="#94a3b8" font-size="13" font-weight="400">
+        Empowering young technologists across Kenya with
+      </text>
+      <text class="font-sans" x="0" y="88" fill="#94a3b8" font-size="13" font-weight="400">
+        hands-on computing, networking, and web coaching
+      </text>
+      <text class="font-sans" x="0" y="108" fill="#94a3b8" font-size="13" font-weight="400">
+        to bridge youth employment in the tech space.
+      </text>
+    </g>
+
+    <!-- SLIDE 3 (Active 8s - 12s) -->
+    <g transform="translate(20, 68)" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;1;1;0" keyTimes="0;0.64;0.67;0.70;0.95;0.98;1" dur="12s" repeatCount="indefinite"/>
+      <rect x="0" y="0" width="38" height="38" rx="8" fill="rgba(0,210,255,0.15)"/>
+      <text x="19" y="25" font-size="20" text-anchor="middle">🌍</text>
+      <text class="font-sans" x="50" y="18" fill="#ffffff" font-size="16" font-weight="700">Exploration &amp; Storytelling</text>
+      <text class="font-mono" x="50" y="34" fill="#38bdf8" font-size="11" font-weight="600">PASSION 03 / 03</text>
+      <text class="font-sans" x="0" y="68" fill="#94a3b8" font-size="13" font-weight="400">
+        Travelling through East Africa, landscape photography,
+      </text>
+      <text class="font-sans" x="0" y="88" fill="#94a3b8" font-size="13" font-weight="400">
+        sound design, and podcasting on technical leadership
+      </text>
+      <text class="font-sans" x="0" y="108" fill="#94a3b8" font-size="13" font-weight="400">
+        and emerging technological transformations.
+      </text>
+    </g>
+
+    <!-- Segment Progress Bars (3 segments, 4s each in 12s loop) -->
+    <g transform="translate(20, 234)">
+      <!-- Segment 1: 0 - 4s -->
+      <rect x="0" y="0" width="102" height="4" rx="2" fill="rgba(255,255,255,0.12)"/>
+      <rect x="0" y="0" width="0" height="4" rx="2" fill="#247bff">
+        <animate attributeName="width" values="0;102;102;0" keyTimes="0;0.31;0.98;1" dur="12s" repeatCount="indefinite"/>
+      </rect>
+
+      <!-- Segment 2: 4 - 8s -->
+      <rect x="112" y="0" width="102" height="4" rx="2" fill="rgba(255,255,255,0.12)"/>
+      <rect x="112" y="0" width="0" height="4" rx="2" fill="#ff354f">
+        <animate attributeName="width" values="0;0;102;102;0" keyTimes="0;0.33;0.64;0.98;1" dur="12s" repeatCount="indefinite"/>
+      </rect>
+
+      <!-- Segment 3: 8 - 12s -->
+      <rect x="224" y="0" width="102" height="4" rx="2" fill="rgba(255,255,255,0.12)"/>
+      <rect x="224" y="0" width="0" height="4" rx="2" fill="#00d2ff">
+        <animate attributeName="width" values="0;0;0;102;0" keyTimes="0;0.64;0.67;0.97;1" dur="12s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+  </g>
+</svg>

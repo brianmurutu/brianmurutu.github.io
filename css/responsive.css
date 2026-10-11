@@ -2186,57 +2186,77 @@ html, body {
 
 /* Ambient Radial Glow */
 .hero-ambient-glow {
-    width: 320px;
-    height: 320px;
+    width: 380px;
+    height: 380px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(66, 80, 245, 0.55) 0%, rgba(99, 102, 241, 0.25) 45%, rgba(7, 19, 93, 0) 70%);
-    filter: blur(28px);
+    background: radial-gradient(circle, rgba(0, 210, 255, 0.35) 0%, rgba(36, 123, 255, 0.22) 42%, rgba(7, 11, 22, 0) 70%);
+    filter: blur(32px);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 0;
     pointer-events: none;
+    animation: glowFloat 6s ease-in-out infinite alternate;
+}
+
+@keyframes glowFloat {
+    0% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.8; }
+    100% { transform: translate(-50%, -50%) scale(1.08); opacity: 1; }
 }
 
 /* Glassmorphic Portrait Frame */
 .hero-portrait-card {
     position: relative;
-    width: 100%;
-    max-width: 370px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    padding-top: 15px;
+    justify-content: center;
+    padding: 10px 0 20px 0;
 }
 
-.hero-img {
+.hero-img-frame {
     position: relative;
     display: inline-block;
-    max-width: 100%;
-    text-align: center;
+    cursor: pointer;
+}
+
+/* High-Tech Dual-Ring Avatar Frame */
+.hero-avatar-ring {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    padding: 5px;
+    background: linear-gradient(135deg, #00d2ff 0%, #247bff 50%, #8b5cf6 100%);
+    box-shadow: 0 0 35px rgba(0, 210, 255, 0.35), 0 15px 40px rgba(0, 0, 0, 0.65);
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+}
+
+.hero-avatar-ring:hover {
+    transform: scale(1.035);
+    box-shadow: 0 0 50px rgba(0, 210, 255, 0.55), 0 20px 50px rgba(0, 0, 0, 0.75);
 }
 
 .hero-person-img {
     display: block;
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    max-height: 470px;
-    transition: transform 0.3s ease;
+    background-color: #070b16;
+    border: 3px solid #070b16;
 }
 
 /* Floating "Available for Hire" Badge */
 .hero-badge {
-    bottom: 12px;
+    bottom: 4px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(15, 23, 42, 0.88);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    background: rgba(7, 11, 22, 0.94);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 210, 255, 0.45);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 210, 255, 0.25);
     border-radius: 50px;
     padding: 7px 18px;
     display: flex;
@@ -2376,11 +2396,9 @@ html, body {
     .hero-subheading span.typer {
         font-size: 21px !important;
     }
-    .hero-person-img {
-        max-height: 410px;
-    }
-    .hero-portrait-card {
-        max-width: 320px;
+    .hero-avatar-ring {
+        width: 290px;
+        height: 290px;
     }
 }
 
@@ -2422,18 +2440,13 @@ html, body {
     }
 
     .hero-ambient-glow {
-        width: 220px;
-        height: 220px;
+        width: 260px;
+        height: 260px;
     }
 
-    .hero-portrait-card {
-        max-width: 240px;
-        padding-top: 10px;
-    }
-
-    .hero-person-img {
-        max-height: 290px;
-        margin: 0 auto;
+    .hero-avatar-ring {
+        width: 240px;
+        height: 240px;
     }
 
     .hero-img-gradient-fade {
@@ -2538,25 +2551,22 @@ html, body {
     }
 
     .hero-img-wrapper {
-        max-width: 230px;
+        max-width: 240px;
     }
 
     .hero-ambient-glow {
-        width: 180px;
-        height: 180px;
+        width: 210px;
+        height: 210px;
     }
 
-    .hero-portrait-card {
-        max-width: 200px;
-    }
-
-    .hero-person-img {
-        max-height: 240px;
+    .hero-avatar-ring {
+        width: 195px;
+        height: 195px;
     }
 
     .hero-badge {
-        bottom: 6px;
-        padding: 4px 12px;
+        bottom: 2px;
+        padding: 5px 14px;
     }
 
     .hero-badge .badge-text {
@@ -2690,12 +2700,9 @@ html, body {
         max-width: 190px;
     }
 
-    .hero-portrait-card {
-        max-width: 180px;
-    }
-
-    .hero-person-img {
-        max-height: 210px;
+    .hero-avatar-ring {
+        width: 165px;
+        height: 165px;
     }
 
     .hero-heading {

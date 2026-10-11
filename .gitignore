@@ -1,0 +1,6 @@
+litellm_config.yaml
+.env
+*.log
+test_litellm_out.txt
+test_litellm_err.txt
+error_log.txt

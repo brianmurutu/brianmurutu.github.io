@@ -36,7 +36,10 @@
 	// 2. background image
 	//---------------------------------------------------------------------------
 	$("[data-background]").each(function (){
-	    $(this).css("background-image", "url(" + $(this).attr("data-background") + ")");
+		var bg = $(this).attr("data-background");
+		if (bg && bg.trim() !== "") {
+			$(this).css("background-image", "url(" + bg + ")");
+		}
 	});
  
 	// 3. Animate the scroll to top
