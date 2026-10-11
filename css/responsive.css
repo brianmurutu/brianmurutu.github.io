@@ -2220,12 +2220,10 @@ html, body {
 .hero-person-img {
     display: block;
     max-width: 100%;
-    width: auto;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
     max-height: 470px;
-    object-fit: contain;
-    filter: none;
-    -webkit-mask-image: none;
-    mask-image: none;
     transition: transform 0.3s ease;
 }
 
