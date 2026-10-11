@@ -2202,7 +2202,7 @@ html, body {
 .hero-portrait-card {
     position: relative;
     width: 100%;
-    max-width: 370px;
+    max-width: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2223,9 +2223,9 @@ html, body {
     width: auto;
     max-height: 470px;
     object-fit: contain;
-    filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.45));
-    -webkit-mask-image: linear-gradient(to bottom, black 80%, rgba(0, 0, 0, 0.4) 93%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 80%, rgba(0, 0, 0, 0.4) 93%, transparent 100%);
+    filter: none;
+    -webkit-mask-image: none;
+    mask-image: none;
     transition: transform 0.3s ease;
 }
 
@@ -2382,7 +2382,7 @@ html, body {
         max-height: 410px;
     }
     .hero-portrait-card {
-        max-width: 320px;
+        max-width: 500px;
     }
 }
 
@@ -2429,7 +2429,7 @@ html, body {
     }
 
     .hero-portrait-card {
-        max-width: 240px;
+        max-width: 350px;
         padding-top: 10px;
     }
 
@@ -2549,7 +2549,7 @@ html, body {
     }
 
     .hero-portrait-card {
-        max-width: 200px;
+        max-width: 280px;
     }
 
     .hero-person-img {
@@ -2693,7 +2693,7 @@ html, body {
     }
 
     .hero-portrait-card {
-        max-width: 180px;
+        max-width: 220px;
     }
 
     .hero-person-img {
